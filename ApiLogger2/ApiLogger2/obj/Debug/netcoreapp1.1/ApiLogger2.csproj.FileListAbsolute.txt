@@ -1,0 +1,9 @@
+c:\users\pcuser\documents\visual studio 2017\Projects\ApiLogger2\ApiLogger2\bin\Debug\netcoreapp1.1\ApiLogger2.deps.json
+c:\users\pcuser\documents\visual studio 2017\Projects\ApiLogger2\ApiLogger2\bin\Debug\netcoreapp1.1\ApiLogger2.runtimeconfig.json
+c:\users\pcuser\documents\visual studio 2017\Projects\ApiLogger2\ApiLogger2\bin\Debug\netcoreapp1.1\ApiLogger2.runtimeconfig.dev.json
+c:\users\pcuser\documents\visual studio 2017\Projects\ApiLogger2\ApiLogger2\obj\Debug\netcoreapp1.1\ApiLogger2.AssemblyInfo.cs
+C:\Users\pcuser\Documents\Visual Studio 2017\Projects\ApiLogger2\ApiLogger2\bin\Debug\netcoreapp1.1\ApiLogger2.dll
+C:\Users\pcuser\Documents\Visual Studio 2017\Projects\ApiLogger2\ApiLogger2\bin\Debug\netcoreapp1.1\ApiLogger2.pdb
+C:\Users\pcuser\Documents\Visual Studio 2017\Projects\ApiLogger2\ApiLogger2\obj\Debug\netcoreapp1.1\ApiLogger2.dll
+C:\Users\pcuser\Documents\Visual Studio 2017\Projects\ApiLogger2\ApiLogger2\obj\Debug\netcoreapp1.1\ApiLogger2.pdb
+C:\Users\pcuser\Documents\Visual Studio 2017\Projects\ApiLogger2\ApiLogger2\obj\Debug\netcoreapp1.1\ApiLogger2.csprojResolveAssemblyReference.cache
