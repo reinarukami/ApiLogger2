@@ -3,6 +3,7 @@ using ApiLogger.Function.Transaction;
 using ApiLogger.Functions.Default;
 using ApiLogger.Models.Default;
 using ApiLogger.Models.DTO;
+using ApiLogger.Models.JSON;
 using Nethereum.Contracts;
 using Nethereum.Hex.HexTypes;
 using Nethereum.RPC.Eth.DTOs;
@@ -19,30 +20,30 @@ namespace ApiLogger.Function.Contracts
 
         static LoggerContract()
         {
-              Contract = DefaultContract.InitContract(DefaultConfiguration.GetContractConfig().GetSection("DefaultAccount").Value, DefaultConfiguration.GetContractConfig().GetSection("DefaultPassword").Value, DefaultConfiguration.GetContractConfig().GetSection("ContractAbi").Value, DefaultConfiguration.GetContractConfig().GetSection("ContractAddress").Value);
+            Contract = DefaultContract.InitContract(DefaultConfiguration.GetContractConfig().GetSection("DefaultAccount").Value, DefaultConfiguration.GetContractConfig().GetSection("DefaultPassword").Value, DefaultConfiguration.GetContractConfig().GetSection("ContractAbi").Value, DefaultConfiguration.GetContractConfig().GetSection("ContractAddress").Value);
         }
 
-        public static void Log(string _log)
+        public static void Log(LogJSON logs)
         {
             int datetime = LogFunction.ConvertToUnixTime();
-            var TaskLog = Contract.GetFunction("Log").SendTransactionAsync(DefaultConfiguration.GetContractConfig().GetSection("DefaultAccount").Value, _log, datetime);
+            var TaskLog = Contract.GetFunction("Log").SendTransactionAsync(DefaultConfiguration.GetContractConfig().GetSection("DefaultAccount").Value, logs.deviceID, logs.values, datetime);
             TaskLog.Wait();
 
-            var TaskAddTransaction = Contract.GetFunction("LogTransactions").SendTransactionAsync(DefaultConfiguration.GetContractConfig().GetSection("DefaultAccount").Value, TaskLog.Result);
+            var TaskAddTransaction = Contract.GetFunction("LogTransactions").SendTransactionAsync(DefaultConfiguration.GetContractConfig().GetSection("DefaultAccount").Value,logs.deviceID, TaskLog.Result);
             TaskAddTransaction.Wait();
         }
 
-        public static List<object> GetLogs()
+        public static List<object> GetLogs(string _deviceID)
         {
             var transactionList = new List<string>();
             var tlist = new List<object>();
 
-            var TaskGetCount = Contract.GetFunction("GetCount").CallAsync<int>(DefaultConfiguration.GetContractConfig().GetSection("DefaultAccount").Value, null,null);
+            var TaskGetCount = Contract.GetFunction("GetCount").CallAsync<int>(_deviceID, null, null);
             TaskGetCount.Wait();
-             
-            for(int i = 1; i <= TaskGetCount.Result; i++)
+
+            for (int i = 1; i <= TaskGetCount.Result; i++)
             {
-                var TaskGetTransactions = Contract.GetFunction("GetTransactions").CallAsync<string>(DefaultConfiguration.GetContractConfig().GetSection("DefaultAccount").Value, null, null, i);
+                var TaskGetTransactions = Contract.GetFunction("GetTransactions").CallAsync<string>(_deviceID, null, null, i);
                 TaskGetTransactions.Wait();
                 transactionList.Add(TaskGetTransactions.Result);
             }
@@ -54,7 +55,7 @@ namespace ApiLogger.Function.Contracts
 
             var test = DefaultWeb3.InitializeWeb3();
 
-            foreach(var transaction in transactionList)
+            foreach (string transaction in transactionList)
             {
                 var tasktest = test.Eth.Transactions.GetTransactionReceipt.SendRequestAsync(transaction);
                 tasktest.Wait();

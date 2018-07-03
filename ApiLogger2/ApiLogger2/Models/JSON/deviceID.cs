@@ -5,10 +5,8 @@ using System.Threading.Tasks;
 
 namespace ApiLogger.Models.JSON
 {
-    public class LogJSON
+    public class DeviceJSON
     {
         public string deviceID { get; set; }
-        public string values { get; set; }
-        public int datetime { get; set; }
     }
 }

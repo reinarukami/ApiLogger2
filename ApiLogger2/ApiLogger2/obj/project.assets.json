@@ -10075,10 +10075,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pcuser\\Documents\\Visual Studio 2017\\Projects\\ApiLogger2\\ApiLogger2\\ApiLogger2.csproj",
+      "projectUniqueName": "C:\\Users\\pcuser\\Documents\\Visual Studio 2017\\Projects\\Logger\\ApiLogger2\\ApiLogger2\\ApiLogger2.csproj",
       "projectName": "ApiLogger2",
-      "projectPath": "C:\\Users\\pcuser\\Documents\\Visual Studio 2017\\Projects\\ApiLogger2\\ApiLogger2\\ApiLogger2.csproj",
-      "outputPath": "C:\\Users\\pcuser\\Documents\\Visual Studio 2017\\Projects\\ApiLogger2\\ApiLogger2\\obj\\",
+      "projectPath": "C:\\Users\\pcuser\\Documents\\Visual Studio 2017\\Projects\\Logger\\ApiLogger2\\ApiLogger2\\ApiLogger2.csproj",
+      "outputPath": "C:\\Users\\pcuser\\Documents\\Visual Studio 2017\\Projects\\Logger\\ApiLogger2\\ApiLogger2\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
